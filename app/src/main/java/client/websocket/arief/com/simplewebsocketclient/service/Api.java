@@ -35,7 +35,7 @@ public interface Api {
 
     @Headers({"Content-type: application/json","Accept: */*"})
     @POST("api/issues/{issue_id}/comments")
-    Observable<Comment.CommentPost> postComment(@Header("token") String token, @Path("issue_id") String issue_id, @Body String body);
+    Observable<Comment.CommentPost> postComment(@Header("token") String token, @Path("issue_id") String issue_id, @Body DataSend body);
 
 
 

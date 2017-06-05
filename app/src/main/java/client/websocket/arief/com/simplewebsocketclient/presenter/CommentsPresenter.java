@@ -62,11 +62,9 @@ public class CommentsPresenter implements iPresenter.CommentsPresenter{
     public void insertComment(String issueId, String comments) {
         mViewComments.loading(true);
 
+        DataSend dataSend = new DataSend(issueId, comments);
 
-        String str = "{\"comment\":\"oke oce \", \"uuid\":\"bean17249_6\"}";
-
-
-        mApi.postComment(Api.TOKEN, comments, str)
+        mApi.postComment(Api.TOKEN, comments, dataSend)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Comment.CommentPost>() {
